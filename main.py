@@ -1,10 +1,22 @@
+import logging
 from downloader import download_zip
 from extractor import extract_zip
 from validator import validate_file_exists
 from parser import parse_employee_file
-import logging
+
+# 🔹 ADD THIS
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler(),          # Console
+        logging.FileHandler("scraper.log") # File
+    ]
+)
 
 def main():
+    logging.info("Starting Employee ZIP Scraper pipeline")
+
     if not download_zip():
         logging.error("Pipeline failed during download")
         return
