@@ -4,12 +4,10 @@ from extractor import extract_zip
 from validator import validate_file_exists
 from parser import parse_employee_file
 
-# 🔹 ADD THIS
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.StreamHandler(),          # Console
         logging.FileHandler("scraper.log") # File
     ]
 )
